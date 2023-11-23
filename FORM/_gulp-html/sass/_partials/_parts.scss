@@ -1,0 +1,68 @@
+/* ----------------------------------------------------------------
+  見出し
+---------------------------------------------------------------- */
+
+
+
+/* ----------------------------------------------------------------
+  リスト
+---------------------------------------------------------------- */
+// ※印
+.list-notes {
+  margin: 1em auto;
+  li {
+    padding-left: 1.25em;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    position: relative;
+    &::before {
+      content: '※';
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+// disc
+.list-disc {
+  margin: 1em auto;
+  li {
+    & + li {
+      margin-top: 0.4em;
+    }
+    position: relative;
+    padding-left: calc(1em + 1px);
+    &::before {
+      content: '・';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+
+/* ----------------------------------------------------------------
+  その他
+---------------------------------------------------------------- */
+// 開閉アイテム
+.js-trgAccordion {
+  display: none;
+}
+
+// 注釈
+.notes {
+  display: block;
+  font-size: 0.86667em;
+  line-height: 1.5;
+}
+
+// snsボタン
+.sns {
+  @include flex(wrap, center, stretch);
+  .sns__icon {
+    margin: 0 min(9vw, 34px);
+    width: 56px;
+  }
+}

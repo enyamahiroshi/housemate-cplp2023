@@ -1,0 +1,48 @@
+/* ----------------------------------------------------------------
+  ヘッダーのレイアウト
+---------------------------------------------------------------- */
+.header {
+  height: 36px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.16);
+  position: relative;
+  z-index: 1;
+  .header__inner {
+    @include flex(nowrap, space-between, center);
+    padding-left: 12px;
+    padding-right: 12px;
+    height: 100%;
+    a {
+      line-height: 1;
+    }
+    .logo-housemate-navi {
+      img {
+        width: 90px;
+      }
+    }
+    .logo-housemate {
+      img {
+        width: 108px;
+      }
+    }
+  }
+}
+@include res_min( $break ){
+  .header {
+    height: 80px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    .header__inner {
+      padding-left: 40px;
+      padding-right: 40px;
+      .logo-housemate-navi {
+        img {
+          width: 195px;
+        }
+      }
+      .logo-housemate {
+        img {
+          width: 178px;
+        }
+      }
+    }
+  }
+}

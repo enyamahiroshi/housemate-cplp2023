@@ -1,0 +1,220 @@
+/* ----------------------------------------------------------------
+  開閉トグル
+---------------------------------------------------------------- */
+.menu-button {
+  cursor: pointer;
+  width: 73px;
+  height: 73px;
+  border-left: 1px solid $gray1;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  .menu-button__line {
+    width: 30px;
+    height: 2px;
+    background-color: $red;
+    position: absolute;
+    right: calc(50% - 15px);
+    top: calc(50% - 1px);
+
+    &::before,
+    &::after {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: $red;
+      position: absolute;
+      left: 0;
+      @include transition;
+    }
+    &::before {
+      top: -12px;
+    }
+    &::after {
+      top: 12px;
+    }
+  }
+}
+.home .menu-button {
+  border-left: none;
+}
+
+
+/* ----------------------------------------------------------------
+  メニューのスタイル
+---------------------------------------------------------------- */
+.global-menu {
+  width: 100%;
+  height: 100vh;
+  background-color: $red;
+  padding: 19px 15px 100px;
+  overflow-y: scroll;
+  position: absolute;
+  left: 0;
+  top: 73px;
+}
+
+.menu {
+  // li
+  .menu__item {
+    margin-bottom: 4px;
+    border-radius: 6px;
+    overflow: hidden;
+    a,
+    .has_child {
+      display: block;
+      cursor: pointer;
+      font-size: 1.8rem;
+      font-weight: bold;
+      line-height: 60px;
+      letter-spacing: 0.08em;
+      text-align: left;
+      background-color: #fff;
+      padding: 0 24px;
+      position: relative;
+      @include res_min( $break ){
+        &:hover {
+          background-color: #FFE3E3;
+        }
+      }
+    }
+    a {
+      &:link, &:visited {
+        background-color: #fff;
+      }
+      &:hover, &:active {
+        background-color: #FFE3E3;
+      }
+      // 右アイコン
+      &::before {
+        content: "";
+        width: 7px;
+        height: 100%;
+        background-image: url(../images/common/ico_arrow_right1.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100%;
+        position: absolute;
+        right: 25px;
+        top: 0;
+      }
+    }
+    .has_child {
+      padding-left: 60px;
+      background-repeat: no-repeat;
+      background-position: left 24px center;
+      // 右アイコン
+      &::before {
+        content: "";
+        width: 24px;
+        height: 100%;
+        background-image: url(../images/common/ico_plus.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100%;
+        position: absolute;
+        right: 17px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      // 個別
+      &__shop {
+        background-image: url(../images/common/ico_shop.svg);
+        background-size: 21px 18px;
+      }
+      &__delivery {
+        background-image: url(../images/common/ico_delivery.svg);
+        background-size: 26px 21px;
+      }
+      &__takeout {
+        background-image: url(../images/common/ico_takeout.svg);
+        background-size: 22px 26px;
+      }
+    }
+  }
+
+  // menu child
+  &__child {
+    display: none;
+    .menu__item {
+      margin-top: 1px;
+      margin-bottom: 0;
+      border-radius: 0;
+      a {
+        font-size: 1.4rem;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+
+/* ----------------------------------------------------------------
+  メニュー開閉時の挙動　まとめて
+---------------------------------------------------------------- */
+// body
+body.is__open {
+  overflow: hidden;
+}
+
+// header
+.header,
+.home .header {
+  &.is__open {
+    background-image: none;
+    height: 73px;
+    min-height: auto;
+    z-index: 9999;
+    .site-logo {
+      display: block;
+      width: auto;
+      height: 52px;
+      position: fixed;
+      left: 14px;
+      top: 12px;
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
+}
+
+// メニュー
+.global-menu {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: 0.15s;
+}
+.global-menu.is__open {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.menu .has_child.is__open {
+  // 右アイコン
+  &::before {
+    background-image: url(../images/common/ico_minus.svg);
+  }
+}
+
+// 開閉トグルのデザイン
+.menu-button.is__open {
+
+  .menu-button__line {
+    background-color: transparent;
+    &::before,
+    &::after {
+      top: 0;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}

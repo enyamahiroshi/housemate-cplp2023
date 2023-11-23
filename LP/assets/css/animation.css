@@ -1,0 +1,514 @@
+@charset 'UTF-8';
+/* --------------------------------------------------
+  共通設定
+-------------------------------------------------- */
+@-webkit-keyframes aniA{
+  from{
+    opacity: 0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+    -webkit-transform: translateY(8px);
+            transform: translateY(8px);
+  }
+  to{
+    opacity: 1;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes aniA{
+  from{
+    opacity: 0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+    -webkit-transform: translateY(8px);
+            transform: translateY(8px);
+  }
+  to{
+    opacity: 1;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+.aniA{
+  -webkit-animation-name: aniA;
+          animation-name: aniA;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes aniB{
+  from{
+    bottom: -8px;
+    opacity: 0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+    -webkit-transform: scale(.8);
+            transform: scale(.8);
+  }
+  to{
+    bottom: 0;
+    opacity: 1;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes aniB{
+  from{
+    bottom: -8px;
+    opacity: 0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+    -webkit-transform: scale(.8);
+            transform: scale(.8);
+  }
+  to{
+    bottom: 0;
+    opacity: 1;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+.aniB{
+  position: relative;
+  -webkit-transform-origin: center bottom;
+      -ms-transform-origin: center bottom;
+          transform-origin: center bottom;
+  -webkit-animation-name: aniB;
+          animation-name: aniB;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes aniC{
+  from{
+    opacity: 0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+    -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
+  }
+  to{
+    opacity: 1;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes aniC{
+  from{
+    opacity: 0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+    -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
+  }
+  to{
+    opacity: 1;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+.aniC{
+  -webkit-animation-name: aniC;
+          animation-name: aniC;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes aniD{
+  from{
+    -webkit-transform: scale(1.06);
+            transform: scale(1.06);
+  }
+  to{
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes aniD{
+  from{
+    -webkit-transform: scale(1.06);
+            transform: scale(1.06);
+  }
+  to{
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes aniE{
+  from{
+    bottom: 0;
+  }
+  to{
+    bottom: -5px;
+  }
+}
+@keyframes aniE{
+  from{
+    bottom: 0;
+  }
+  to{
+    bottom: -5px;
+  }
+}
+@-webkit-keyframes aniF{
+  from{
+    opacity: 0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+  }
+  45%{
+    opacity: 1;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to{
+    opacity: 1;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes aniF{
+  from{
+    opacity: 0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+  }
+  45%{
+    opacity: 1;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to{
+    opacity: 1;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes aniG{
+  from{
+    opacity: 0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+    -webkit-transform: scale(.7);
+            transform: scale(.7);
+  }
+  to{
+    opacity: 1;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes aniG{
+  from{
+    opacity: 0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+    -webkit-transform: scale(.7);
+            transform: scale(.7);
+  }
+  to{
+    opacity: 1;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+.aniG{
+  -webkit-transform-origin: center top;
+      -ms-transform-origin: center top;
+          transform-origin: center top;
+  -webkit-animation-name: aniG;
+          animation-name: aniG;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-delay: .1s;
+          animation-delay: .1s;
+
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes aniH{
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+
+@keyframes aniH{
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+@-webkit-keyframes aniXXX{
+}
+@keyframes aniXXX{
+}
+.aniXXX{
+  -webkit-animation: aniXXX 0s 0s;
+          animation: aniXXX 0s 0s;
+}
+
+@-webkit-keyframes roop-ani{
+  from{
+    background-position: 0 0;
+  }
+  to{
+    background-position: -375px 0;
+  }
+}
+
+@keyframes roop-ani{
+  from{
+    background-position: 0 0;
+  }
+  to{
+    background-position: -375px 0;
+  }
+}
+/* --------------------------------------------------
+  個別に設定
+-------------------------------------------------- */
+.intro-title__left,
+.intro-title__right{
+  -webkit-animation-delay: .1s;
+          animation-delay: .1s;
+}
+
+.intro-title__left.animated,
+.intro-title__right.animated{
+  -webkit-transform-origin: center center;
+      -ms-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-animation-name: aniD;
+          animation-name: aniD;
+  -webkit-animation-duration: .78s;
+          animation-duration: .78s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+.sec-intro .subject__num,
+.subject__item__contents__title .ivo,
+.subject__item__contents__text,
+.subject__item__image{
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+
+.subject-bg{
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+.present-outline-head .present-outline-head__title__sub{
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+.present-outline-head .present-outline-head__left,
+.present-outline-head .present-outline-head__right{
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+  -webkit-animation-delay: .1s;
+          animation-delay: .1s;
+}
+.present-outline-head.animated .present-outline-head__title__sub,
+.present-outline-head.animated .present-outline-head__left,
+.present-outline-head.animated .present-outline-head__right{
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.present-prize__block> .ivo{
+  -webkit-animation-delay: .2s;
+          animation-delay: .2s;
+}
+.present-prize__block .bg{
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+
+.list-notes> .ivo{
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+
+.application-title{
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+.application-title .text,
+.application-title .icon-application-title{
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+.application-title.animated .text{
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+.application-title.animated .icon-application-title{
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+.application-title.animated .icon-application-title.animated{
+  -webkit-animation-name: aniE;
+          animation-name: aniE;
+  -webkit-animation-duration: .9s;
+          animation-duration: .9s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+.application-rules{
+  -webkit-animation-delay: .1s;
+          animation-delay: .1s;
+}
+
+.sec-oheyaplus .oheyaplus-arrow{
+  -webkit-animation: aniF 1.1s ease-in-out 0s normal infinite;
+          animation: aniF 1.1s ease-in-out 0s normal infinite;
+}
+.sec-oheyaplus .oheyaplus-data__title,
+.sec-oheyaplus .oheyaplus-data__text{
+  -webkit-animation-delay: .3s;
+          animation-delay: .3s;
+}
+.sec-oheyaplus .button--yellow{
+  -webkit-animation-delay: .3s;
+          animation-delay: .3s;
+}
+.sec-oheyaplus .button--yellow.animated .button--red{
+  -webkit-animation-delay: .3s;
+          animation-delay: .3s;
+}
+.information::before{
+  -webkit-animation: aniH 6s ease-in-out 0s infinite;
+          animation: aniH 6s ease-in-out 0s infinite;
+}
+@media only screen and (min-width: 768px){
+  .aniG{
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+  }
+  @-webkit-keyframes roop-ani-l{
+    from{
+      background-position: 0 0;
+    }
+    to{
+      background-position: -800px 0;
+    }
+  }
+  @keyframes roop-ani-l{
+    from{
+      background-position: 0 0;
+    }
+    to{
+      background-position: -800px 0;
+    }
+  }
+  .sec-intro .subject__num,
+  .subject__item__contents__title .ivo,
+  .subject__item__contents__text,
+  .subject__item__image{
+    -webkit-animation-delay: 0;
+            animation-delay: 0;
+  }
+  .subject__item__image{
+    -webkit-animation-delay: 0;
+            animation-delay: 0;
+  }
+  .sec-oheyaplus .oheyaplus-data__title,
+  .sec-oheyaplus .oheyaplus-data__text,
+  .sec-oheyaplus .button{
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+  }
+  .sec-oheyaplus .oheyaplus-image.animated+ .oheyaplus-data .oheyaplus-data__title{
+    -webkit-animation-play-state: running;
+            animation-play-state: running;
+    -webkit-animation-delay: 0;
+            animation-delay: 0;
+  }
+  .sec-oheyaplus .oheyaplus-image.animated+ .oheyaplus-data .oheyaplus-data__title.animated+ .oheyaplus-data__text{
+    -webkit-animation-play-state: running;
+            animation-play-state: running;
+    -webkit-animation-delay: 0;
+            animation-delay: 0;
+  }
+  .sec-oheyaplus .oheyaplus-image.animated+ .oheyaplus-data .oheyaplus-data__title.animated+ .oheyaplus-data__text.animated+ .button-wrap .button--yellow{
+    -webkit-animation-play-state: running;
+            animation-play-state: running;
+    -webkit-animation-delay: 0;
+            animation-delay: 0;
+  }
+  .sec-oheyaplus .oheyaplus-image.animated+ .oheyaplus-data .oheyaplus-data__title.animated+ .oheyaplus-data__text.animated+ .button-wrap .button--yellow.animated+ .button--red{
+    -webkit-animation-play-state: running;
+            animation-play-state: running;
+    -webkit-animation-delay: 0;
+            animation-delay: 0;
+  }
+}

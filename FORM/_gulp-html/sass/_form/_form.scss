@@ -1,0 +1,1055 @@
+textarea {resize: vertical;}
+
+input[type='checkbox'], input[type='radio'] {
+	opacity: 0;
+	position: absolute;
+}
+
+label, button, select {
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+select::-ms-expand {display: none;}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+input[type="text"],input[type="password"],textarea,select { outline: none; }
+// ie11のinputに出る×印を消す
+input[type=text]::-ms-clear,input[type=password]::-ms-reveal { display: none; }
+// iOSでinputが角丸になるのを防止
+input[type="button"],input[type="text"],input[type="email"],input[type="url"],input[type="tel"],input[type="submit"],textarea { -webkit-appearance: none; border-radius: 0; }
+
+//プレースホルダーの色
+$phcolor: #bbbbbb;
+$phweight: inherit;
+
+:placeholder-shown { color: $phcolor !important; font-weight: $phweight !important; }
+/* Google Chrome, Safari, Opera 15+, Android, iOS */
+::-webkit-input-placeholder { color: $phcolor !important; font-weight: $phweight !important; }/* Firefox 18- */:-moz-placeholder { color: $phcolor !important; font-weight: $phweight !important; opacity: 1; }/* Firefox 19+ */::-moz-placeholder { color: $phcolor !important; font-weight: $phweight !important; opacity: 1; }
+
+
+/* ----------------------------------------------------------------
+共通
+---------------------------------------------------------------- */
+$gray: #B5B5B5;
+
+
+// step
+.step {
+  @include flex(nowrap, space-between, stretch);
+  margin-top: 40px;
+  .step__item {
+    @include flex(nowrap, center, center);
+    padding-right: 10px;
+    background-color: #B5B5B5;
+    border-radius: 6px 0 0 6px;
+    flex-basis: calc(33.333% - 4px);
+    height: 50px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #fff;
+    position: relative;
+    &::before {
+      content: '';
+      width: 20px;
+      height: 100%;
+      background-image: url(../images/ico_step.png);
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    &.current {
+      background-color: $red;
+      &::before {
+        background-image: url(../images/ico_step_current.png);
+      }
+    }
+  }
+}
+@include res_min( $break ){
+  .step {
+    margin-top: 50px;
+    .step__item {
+      flex-basis: calc(33.333% - 8px);
+    }
+  }
+}
+
+
+// button
+.button {
+  @include flex(nowrap, center, center);
+  margin: 60px auto 0;
+  background-color: #E9607C;
+  border-radius: 40px;
+  width: 100%;
+  max-width: 375px;
+  height: 80px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #fff;
+  overflow: visible;
+  position: relative;
+  &:link, &:visited {
+    color: #fff;
+    transition: none;
+  }
+  &:hover, &:active {
+    text-decoration: none;
+  }
+  &::before {
+    content: '';
+    background-image: url(../images/cnt_ico_next.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    width: 24px;
+    height: 100%;
+    position: absolute;
+    right: 23px;
+    top: 0;
+  }
+  &::after {
+    content: '';
+    background-color: #D70056;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 0;
+    z-index: -1;
+  }
+  &:active {
+    transform: translateY(6px);
+    &::after {
+      content: none;
+    }
+  }
+  // 戻る
+  &.back {
+    background-color: $gray;
+    &::after {
+      background-color: #898989;
+    }
+    &::before {
+      right: auto;
+      left: 23px;
+      transform: scale(-1,-1);
+    }
+  }
+  // home
+  &.home {
+    padding-right: 2em;
+  }
+  // red
+  &--red {
+    justify-content: flex-start;
+    padding: 0.9em 3.5em 1.1em 2.5em;
+    margin-top: 25px;
+    background-color: #E9607C;
+    box-shadow: 0 6px 0 #D70056;
+    height: auto;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    &:link, &:visited {
+      color: #fff;
+    }
+    &::after {
+      background-color: #D70056;
+    }
+    &::before {
+      background-image: url(../images/cnt_ico_next.svg);
+    }
+  }
+  // yellow
+  &--yellow {
+    justify-content: flex-start;
+    padding: 0.9em 3.5em 1.1em 2.5em;
+    margin-top: 25px;
+    background-color: #F8B616;
+    box-shadow: 0 6px 0 #DD8319;
+    height: auto;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    &:link, &:visited {
+      color: #fff;
+    }
+    &::after {
+      background-color: #D70056;
+    }
+    &::before {
+      background-image: url(../images/cnt_ico_next.svg);
+    }
+  }
+  // anc
+  &--anc {
+    margin-top: 70px;
+    height: 64px;
+    background-image: linear-gradient(90deg, #ff6ea6 0%, #f9c110 100%);
+    &::before {
+      content: '';
+      background-image: url(../images/cnt_ico_next.svg);
+      width: 23px;
+      right: 28px;
+      transform: rotate(90deg);
+    }
+  }
+}
+@include res_min( $break ){
+  .button {
+    margin-top: 100px;
+    max-width: 500px;
+    font-size: 2rem;
+    // red
+    &--red {
+      padding: 1.2em 3.5em 1.3em 2.5em;
+      margin-top: 25px;
+      font-size: 1.6rem;
+    }
+    // yellow
+    &--yellow {
+      padding: 1.2em 3.5em 1.3em 2.5em;
+      margin-top: 25px;
+      font-size: 1.6rem;
+    }
+    // anc
+    &--anc {
+      margin-top: 80px;
+      max-width: 592px;
+      height: 100px;
+      border-radius: 50px;
+      font-size: 2.4rem;
+      &::before {
+        width: 40px;
+        right: 48px;
+      }
+    }
+  }
+}
+
+.control {
+  margin-top: 60px;
+  li {
+    &:not(:first-of-type) {
+      margin-top: 25px;
+    }
+    .button {
+      margin-top: 0;
+    }
+  }
+}
+@include res_min( $break ){
+  .control {
+    margin-top: 100px;
+    @include flex(nowrap, space-between, stretch);
+    li {
+      flex-basis: calc(50% - 30px);
+      &:not(:first-of-type) {
+        margin-top: 0;
+      }
+      .button {
+        margin-top: 0;
+        max-width: none;
+      }
+    }
+  }
+}
+
+
+// 入力
+.entry .field {
+  &.disable {
+    position: relative;
+    z-index: 1;
+    &::before {
+      background-color: #ccc;
+      content: '';
+      display: block;
+      height: calc(100% + 3.04%);
+      left: 0;
+      margin: -1.52% 0 0 -1.52%;/* -10px 0 0 -10px */
+      opacity: 0.5;
+      position: absolute;
+      top: 0;
+      width: calc(100% + 3.04%);/* 680px */
+      z-index: 1000;
+    }
+  }
+  // 入力項目の見出し
+  .label {
+    padding-top: 0.35em;
+    padding-left: 27px;
+    margin-top: 40px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    position: relative;
+    &::before {
+      content: '';
+      background-color: $red;
+      width: 9px;
+      height: 40px;
+      border-radius: 5px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &::after {
+      content: '必須';
+      background-color: $red;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5px;
+      height: 20px;
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      vertical-align: 3px;
+      color: #fff;
+    }
+  }
+  // error: alert
+  .alert {
+    background-color: #fce5ee;
+    border-radius: 6px;
+    color: $red;
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 25px;
+    padding: 0.5em;
+    text-align: center;
+    &::before {
+      content: '※';
+    }
+  }
+}
+@include res_min( $break ){
+  .entry .field {
+    // 入力項目の見出し
+    .label {
+      padding-top: 0;
+      padding-left: 33px;
+      margin-top: 80px;
+      font-size: 2.2rem;
+    }
+  }
+}
+
+
+// アンケート
+.questionnaire {
+  margin-top: 40px;
+  border: 1px solid $red;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .text {
+    padding: 23px 30px;
+    background-color: $red;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.75;
+    color: #fff;
+  }
+
+  .question {
+    padding: 35px 17px 25px;
+
+    .label {
+      @include flex(nowrap, flex-start, stretch);
+      padding-top: 40px;
+      dt {
+        .q__label {
+          padding: 0 10px;
+          height: 34px;
+          background-color: $red;
+          border-radius: 8px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.6rem;
+          font-weight: 600;
+          color: #fff;
+          white-space: nowrap;
+        }
+      }
+      dd {
+        padding-top: 3px;
+        padding-left: 15px;
+        font-size: 1.8rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        line-height: 1.5;
+        &::after {
+          content: '必須';
+          background-color: $red;
+          border-radius: 4px;
+          display: inline-flex;
+          vertical-align: 3px;
+          align-items: center;
+          justify-content: center;
+          padding: 0 5px;
+          height: 20px;
+          font-size: 1.3rem;
+          font-weight: 400;
+          letter-spacing: 0;
+          color: #fff;
+        }
+      }
+
+      &.any {
+        dd {
+          &::after {content: none;}
+        }
+      }
+    }
+    li:first-of-type .label {
+      padding-top: 0;
+    }
+
+    // error: alert
+    .alert {
+      background-color: #fce5ee;
+      border-radius: 6px;
+      color: $red;
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-top: 15px;
+      padding: 0.5em;
+      text-align: center;
+      &::before {
+        content: '※';
+      }
+    }
+
+    // select
+    .select {
+      border: 1px solid #707070;
+      border-radius: 4px;
+      margin-top: 20px;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      &::before {
+        content: '';
+        background-image: url(../images/cnt_btn_select.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 8px;
+        background-color: #fff;
+        width: 30px;
+        height: 100%;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      select {
+        border: none;
+        font-size: 1.6rem;
+        color: $baseColor;
+        padding: 11px 35px 11px 12px;
+        width: 100%;
+      }
+    }
+
+    // option
+    .option {
+      padding-top: 5px;
+      li {
+        margin-top: 14px;
+        position: relative;
+      }
+      label {
+        display: block;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        padding-left: 30px;
+        position: relative;
+        &::before {
+          content: '';
+          background-repeat: no-repeat;
+          background-position: 0 0;
+          background-size: 200% 200%;
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 3px;
+          left: 0;
+        }
+      }
+      input[type="radio"] + label::before {
+        background-image: url(../images/cnt_btn_radio.png);
+      }
+      input[type="checkbox"] + label::before {
+        background-image: url(../images/cnt_btn_check.png);
+      }
+      input:checked + label::before {
+        background-position: 0 100%;
+      }
+
+      &.shop {
+        border-top: 1px solid #B5B5B5;
+        margin-top: 20px;
+        padding-top: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          width: 50%;
+        }
+        label {
+          padding-right: 1em;
+        }
+        span {
+          display: block;
+          font-size: 1.8rem;
+          margin-left: -0.4em;
+        }
+      }
+    }
+
+    // slogan
+    .slogan {
+      @include flex(nowrap, center, center);
+      padding: 30px 0;
+      margin-top: 15px;
+      border: 1px solid $red;
+      border-radius: 4px;
+      img {
+        width: 49.2%;
+        max-width: 180px;
+      }
+    }
+
+    // limited
+    .limited {
+      margin: 50px 0 30px 1em;
+      color: $red;
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.4667;
+      letter-spacing: 0.1em;
+      text-indent: -1em;
+      & + .label {
+        padding-top: 0;
+      }
+      &::before {
+        content: '※';
+      }
+    }
+
+    // textarea
+    textarea {
+      margin-top: 15px;
+      padding: 0.5em;
+      width: 100%;
+      height: calc(1.6em * 8);
+      font-size: 1.5rem;
+      line-height: 1.6;
+      border: 2px solid $red;
+      border-radius: 4px;
+    }
+
+    // error
+    .error {
+      .select {
+        background-color: #fce5ee;
+      }
+      .option {
+        label::before
+        {
+          background-position: 100% 0;
+        }
+        input:checked + label::before {
+          background-position: 100% 100%;
+        }
+      }
+      textarea {
+        background-color: #fce5ee;
+      }
+    }
+
+  }
+}
+@include res_min( $break ){
+  .questionnaire {
+    margin-top: 60px;
+
+    .text {
+      padding: 45px 50px;
+      font-size: 1.8rem;
+      line-height: 1.6;
+      letter-spacing: 0.1em;
+    }
+
+    .question {
+      padding: 50px 50px 100px;
+
+      .label {
+        padding-top: 45px;
+        dt {
+          .q__label {
+            padding: 0;
+            width: 70px;
+            height: 40px;
+            font-size: 2rem;
+          }
+        }
+        dd {
+          padding-top: 2px;
+          padding-left: 24px;
+          font-size: 2.2rem;
+        }
+      }
+
+      // select
+      .select {
+        margin-top: 25px;
+        width: auto;
+        width: 245px;
+        select {
+          padding-top: 10px;
+          padding-bottom: 10px;
+          font-size: 1.8rem;
+        }
+      }
+
+      // option
+      .option {
+        padding-top: 8px;
+        li {
+          margin-top: 14px;
+        }
+        label {
+          font-size: 1.8rem;
+          padding-left: 39px;
+          &::before {
+            top: 4px;
+          }
+        }
+
+        &.shop {
+          margin-top: 24px;
+          li {
+            width: 33.333%;
+          }
+        }
+      }
+
+      // slogan
+      .slogan {
+        padding: 30px 0;
+        margin-top: 15px;
+        img {
+          width: 70.4%;
+          max-width: 562px;
+        }
+      }
+
+      // limited
+      .limited {
+        margin: 45px 0 15px 1em;
+        font-size: 1.6rem;
+      }
+
+      // textarea
+      textarea {
+        margin-top: 18px;
+        width: 100%;
+        height: calc(1.6em * 9);
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+
+/* ----------------------------------------------------------------
+入力
+---------------------------------------------------------------- */
+.input {
+
+  // error: 入力内容に不備がございます
+  .entry .failed {
+    background-color: #fce5ee;
+    background-image: url(../images/fld_ico_alert.gif);
+    background-repeat: no-repeat;
+    background-position: 4.24% 50%;
+    background-size: 7.27%;
+    border-radius: 6px;
+    color: $red;
+    display: none;
+    font-weight: 600;
+    margin: 10.13% auto 0;/* 76px auto 0 */
+    padding: 4% 3.73% 2.93% 13.6%;/* 30px 28px 22px 102px */
+    dt {
+      font-size: 2rem;
+      letter-spacing: 0.025em;
+    }
+    dd {
+      font-size: 1.6rem;
+      letter-spacing: 0.025em;
+      line-height: 1.36;
+      padding-top: 1.89%;/* 10px */
+    }
+  }
+  @include res_min( $break ){
+    .entry .failed {
+      background-size: 60px;
+      dt {
+        font-size: 2rem;
+        line-height: 1;
+      }
+      dd {
+        font-size: 1.6rem;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  // 賞品を選ぶ
+  .entry .field .prize {
+    margin-top: 24px;
+    li {
+      border: 1px solid #707070;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    label {
+      display: block;
+      position: relative;
+      &::before {
+        content: '';
+        background-image: url(../images/cnt_btn_radio.png);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 200% 200%;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 50%;
+        left: 17px;
+        transform: translateY(-50%);
+      }
+    }
+    input[type="radio"]:checked + label::before {
+      background-position: 0 100%;
+    }
+    .disabled {
+      background-color: #ccc;
+      * {
+        color: #999 !important;
+        cursor: text;
+        font-weight: normal !important;
+        opacity: 0.8;
+      }
+      label {
+        &::before {
+          content: none;
+        }
+      }
+    }
+
+    // error
+    &.error {
+      label::before {
+        background-position: 100% 0;
+      }
+      input[type="radio"]:checked + label::before {
+        background-position: 100% 100%;
+      }
+    }
+
+    dl {
+      padding: 18px 18px 18px 53px;
+      * {
+        display: inline;
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 1.75;
+      }
+    }
+
+    .note {
+      font-size: 2.2rem;
+      font-weight: normal;
+      &::before {content: '※';}
+    }
+  }
+  @include res_min( $break ){
+    .entry .field .prize {
+      margin-top: 30px;
+      li {
+        margin-top: 20px;
+      }
+      label {
+        &::before {
+          left: 37px;
+        }
+      }
+
+      dl {
+        padding: 22px 40px 22px 76px;
+        * {
+          font-size: 2rem;
+        }
+        dd {
+          br {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  // 同意事項
+  .consensus {
+    padding: 35px 30px;
+    margin-top: 35px;
+    background-color: #FFF7E2;
+    border-radius: 10px;
+    dt {
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-align: center;
+    }
+    dd {
+      padding-top: 10px;
+      margin-top: 0;
+      font-size: 1.5rem;
+      word-break: break-all;
+    }
+    .note {
+      // margin-left: 1em;
+      // text-indent: -1em;
+      &::before { content: '※'; }
+    }
+  }
+  @include res_min( $break ){
+    .consensus {
+      padding: 45px 50px;
+      margin-top: 40px;
+      dt {
+        font-size: 3rem;
+      }
+      dd {
+        padding-top: 14px;
+      }
+    }
+  }
+
+}
+
+
+/* ----------------------------------------------------------------
+確認
+---------------------------------------------------------------- */
+.confirm {
+
+  // title
+  .title {
+    margin-top: 60px;
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    color: $red;
+    text-align: center;
+  }
+  @include res_min( $break ){
+    .title {
+      margin-top: 70px;
+      font-size: 3rem;
+    }
+  }
+
+  // 入力
+  .entry .field {
+    // 入力項目の見出し
+    .label {
+      &::before {
+        background-color: $gray;
+      }
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  // 賞品を選ぶ
+  .entry .field .prize {
+    margin-top: 30px;
+    dl {
+      * {
+        font-size: 1.6rem;
+        line-height: 1.75;
+      }
+    }
+  }
+  @include res_min( $break ){
+    .entry .field .prize {
+      dl {
+        * {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+
+  // アンケート
+  .questionnaire.answer {
+    border: 1px solid $gray;
+
+    .text {
+      background-color: $gray;
+    }
+
+    .question {
+      padding-bottom: 50px;
+      .label {
+        dt {
+          .q__label {
+            background-color: $gray;
+          }
+        }
+        dd {
+          &::after {
+            content: none;
+          }
+        }
+      }
+
+      // option
+      .option {
+        padding-top: 30px;
+        font-size: 1.6rem;
+        // 桁によるpadding
+        &.digit2 {
+          padding-left: 57px;
+        }
+        &.digit3 {
+          padding-left: 66px;
+        }
+        li {
+          padding-bottom: 10px;
+          margin-top: 10px;
+          &:first-of-type {
+            margin-top: 0;
+          }
+          border-bottom: 1px solid $gray;
+        }
+      }
+      @include res_min( $break ){
+        .option {
+          padding-top: 18px;
+          font-size: 1.8rem;
+          // 桁によるpadding
+          &.digit2 {
+            padding-left: 94px;
+          }
+          &.digit3 {
+            padding-left: 94px;
+          }
+          li {
+            padding-bottom: 18px;
+            margin-top: 18px;
+            &:first-of-type {
+              margin-top: 18px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+}
+
+
+/* ----------------------------------------------------------------
+完了
+---------------------------------------------------------------- */
+.complete {
+
+  .title {
+    margin-top: 50px;
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    color: $red;
+    text-align: center;
+    position: relative;
+    &::before,
+    &::after {
+      content: '';
+      background-image: url(../images/bg_conplete_title-s.svg);
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: 100%;
+      width: max(34px, 8%);
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &::after {
+      left: auto;
+      right: 0;
+      transform: scale(-1,1);
+    }
+  }
+  @include res_min( $break ){
+    .title {
+      padding: 0.2em 0 1.2em;
+      margin-top: 65px;
+      font-size: clamp(2.4rem, 3.1vw, 3rem);
+      &::before,
+      &::after {
+        background-image: url(../images/bg_conplete_title-l.svg);
+        width: 50px;
+      }
+    }
+  }
+
+  .message {
+    margin-top: 25px;
+    font-size: 1.6rem;
+    line-height: 1.75;
+    text-align: center;
+  }
+  @include res_min( $break ){
+    .message {
+      margin-top: 35px;
+      font-size: 1.8rem;
+      line-height: 1.5;
+      dd {
+        margin-top: 90px;
+        .button {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+}
