@@ -16,8 +16,6 @@
     "gulp": "^4.0.2",
     "gulp-babel": "^7.0.1",
     "gulp-changed": "^4.0.3",
-    "gulp-csslint": "~1.0.0",
-    "gulp-frontnote": "~2.0.1",
     "gulp-htmlhint": "^4.0.1",
     "gulp-jshint": "^2.1.0",
     "gulp-notify": "^4.0.0",
