@@ -66,3 +66,14 @@
     width: 56px;
   }
 }
+
+//セパレートボックス
+.separate-box{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  .sep-label{}
+  .sep-body{
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
