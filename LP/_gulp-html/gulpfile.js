@@ -157,7 +157,7 @@ const browsers = [
   });
 
   gulp.task('code', (done) => {
-      gulp.src([f_code + "**/*.php"])
+      gulp.src([f_code + "**/*.html"])
           .pipe(browser.reload({
               stream: true
           }))

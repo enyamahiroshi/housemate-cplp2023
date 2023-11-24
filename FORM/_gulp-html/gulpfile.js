@@ -23,9 +23,9 @@ const source = require('vinyl-source-stream');
 //ファイルパス関係
 const f_root = "../";
 const f_html = "../";
-const f_css = "../assets/css/";
-const f_js = "../assets/js/";
-const f_image = "assets/images/";
+const f_css = "../form/assets/css/";
+const f_js = "../form/assets/js/";
+const f_image = "form/assets/images/";
 const f_image_min = "../" + f_image;
 const f_sass = "sass/";
 const f_es6 = "es6/";
@@ -157,7 +157,7 @@ const browsers = [
   });
 
   gulp.task('code', (done) => {
-      gulp.src([f_code + "**/*.php"])
+      gulp.src([f_code + "**/*.html"])
           .pipe(browser.reload({
               stream: true
           }))
