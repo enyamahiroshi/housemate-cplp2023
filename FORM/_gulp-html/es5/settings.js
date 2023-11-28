@@ -123,14 +123,14 @@ $(function() {
 		}
 	});
 
-	$('.entry .prize input').each(function(){
-		$(this).rules('add', {
-			required: true,
-			messages: {
-				required: '項目を選択してください'
-			}
-		});
-	});
+	// $('.entry .prize input').each(function(){
+	// 	$(this).rules('add', {
+	// 		required: true,
+	// 		messages: {
+	// 			required: '項目を選択してください'
+	// 		}
+	// 	});
+	// });
 
 	$('.input .survey .q').each(function(){
 
@@ -157,7 +157,7 @@ $(function() {
 
 		} else {
 
-			$(this).find('.option input[type="radio"]').each(function(){
+			$(this).find('.option:not(.optional) input[type="radio"]').each(function(){
 				$(this).rules('add', {
 					required: true,
 					messages: {

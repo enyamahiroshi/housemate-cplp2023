@@ -20,7 +20,7 @@ a {
 
 // mixins
 @mixin gradation01 {
-  background-image: linear-gradient(90deg, #006eba 0%, #166cb6 6.71%, #366bb2 14.47%, #ca3962 38.56%, #cf3360 42.67%, #dd225d 48.04%, #e41b5c 50%, #e5354d 56.86%, #e74c41 63.93%, #ee7f29 73.8%, #f3a219 79.98%, #f6b413 90.33%, #f9c110 100%);
+  background: linear-gradient(-90deg, #006eba 0%, #166cb6 6.71%, #366bb2 14.47%, #ca3962 38.56%, #cf3360 42.67%, #dd225d 48.04%, #e41b5c 50%, #e5354d 56.86%, #e74c41 63.93%, #ee7f29 73.8%, #f3a219 79.98%, #f6b413 90.33%, #f9c110 100%);
 }
 
 // MV
@@ -42,194 +42,136 @@ a {
 /* ----------------------------------------------------------------
   FORM
 ---------------------------------------------------------------- */
-// A賞B賞
+// プレゼント概要
 .sec-present-outline {
   background-color: #FFF7E2;
   .inner {
     padding-top: 60px;
     padding-bottom: 80px;
   }
-  .present-outline-title {
-    .present-outline-title__image {
+  .present-outline-head {
+    margin: 0 auto;
+    max-width: 400px;
+    position: relative;
+    .present-outline-head__title {
       margin: 0 auto;
-      max-width: 400px;
+      width: 57.4%;
+      .present-outline-head__title__sub {
+        margin: 0 auto;
+        width: 85%;
+      }
+      .present-outline-head__title__main {
+        margin: min(12px, 3vw) auto 0;
+        width: 100%;
+      }
+    }
+    .present-outline-head__left {
+      width: 23.8%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+    .present-outline-head__right {
+      width: 23.8%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
     }
   }
-  .present-prize {
-    .present-prize__block {
-      padding-top: 14vw;
-      padding-bottom: 25px;
-      margin-top: 19.4%;
-      background-image: linear-gradient(45deg, #006eba 0%, #166cb6 6.71%, #366bb2 14.47%, #ca3962 38.56%, #cf3360 42.67%, #dd225d 48.04%, #e41b5c 50%, #e5354d 56.86%, #e74c41 63.93%, #ee7f29 73.8%, #f3a219 79.98%, #f6b413 90.33%, #f9c110 100%);
-      border-radius: 10px;
-      position: relative;
-      z-index: 1;
-      &::before { // グラデーションバックの上にのる白ボックス
-        content: '';
-        width: calc(100% - 4px);
-        height: calc(100% - 4px);
-        background-color: #fff;
-        border-radius: 8px;
-        position: absolute;
-        left: 2px;
-        top: 2px;
-        z-index: -1;
-      }
-      .present-prize__block__title {
-        margin: 0 auto;
-        width: 87.5%;
-        max-width: 302px;
-        position: absolute;
-        top: -11.2vw;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .present-prize__block__name {
-        display: block;
-        padding: 0 28px;
-        font-size: 3rem;
-        font-weight: 900;
-        line-height: 1.5;
-      }
-      .present-prize__block__name-sub {
-        display: block;
-        padding: 0 28px;
-        margin-bottom: 10px;
-        font-size: 2rem;
-        font-weight: 600;
-        line-height: 1.45;
-      }
-      .present-prize__block__text {
-        padding: 0 28px;
-      }
-      .present-prize__block__image {
-        padding: 0 28px;
-        margin: 18px auto 0;
-        max-width: 378px;
-        figcaption {
-          margin-top: 10px;
-        }
-      }
-
-      // 個別
-      &--B {
-        margin-top: 17.5%;
-        .present-prize__block__image {
-          margin-top: 0px;
-          max-width: 332px;
-        }
+  .present-outline-info{
+    margin-top: 18px;
+    p{
+      font-size: 1.6rem;
+      line-height: 1.75;
+      &.txt-sub{
+        font-size: 1.3rem;
       }
     }
+  }
+  .giftee-box{
+    margin-top: 35px;
+    p{
+      margin-top: 10px;
+      font-size: 1.3rem;
+    }
+  }
+  .notes-title{
+    margin-top: 25px;
+  }
+  .list-notes{
+    margin-top: 5px;
   }
 }
-@include res_min( 376 ){
+@include res_min( $break ){
   .sec-present-outline {
-    .present-prize {
-      .present-prize__block {
-        padding-top: 50px;
-        margin-top: 67px;
-        .present-prize__block__title {
-          width: auto;
-          height: 84px;
-          top: -42px;
-          left: 17px;
-          transform: translateX(0);
+    position: relative;
+    // パララックス背景
+    .sec-present-outline-bg-l {
+      background-image: url(../images/bg-present-outline-left.png);
+      background-repeat: no-repeat;
+      background-position: right 30px top 506px;
+      background-size: 135px;
+      width: calc((100% - 900px) / 2);
+      height: calc(720px + 506px);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .sec-present-outline-bg-r {
+      background-image: url(../images/bg-present-outline-right.png);
+      background-repeat: no-repeat;
+      background-position: left 46px top 310px;
+      background-size: 114px;
+      width: calc((100% - 900px) / 2);
+      height: calc(730px + 310px);
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .inner {
+      padding-top: 89px;
+      padding-bottom: 120px;
+    }
+
+    .present-outline-head {
+      align-items: flex-end;
+      width: 80%;
+      max-width: 707px;
+      .present-outline-head__title {
+        margin: 0 auto min(8px, 1.5%);
+        width: 48%;
+        .present-outline-head__title__sub {
+          margin: 0 auto;
+          width: 100%;
         }
-        // 個別
-        &--B {
-          margin-top: 56px;
+        .present-outline-head__title__main {
+          margin-top: min(19px, 2vw);
+          width: 95.6%;
         }
+      }
+      .present-outline-head__left {
+        width: 23%;
+      }
+      .present-outline-head__right {
+        width: 23%;
       }
     }
-  }
-  @include res_min( $break ){
-    .sec-present-outline {
-      position: relative;
-      &::before {
-        content: '';
-        background-image: url(../images/bg-present-outline-left.png);
-        background-repeat: no-repeat;
-        background-position: right 30px top 506px;
-        background-size: 135px;
-        width: calc((100% - 900px) / 2);
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
+    .present-outline-info{
+      margin-top: 35px;
+      p{
+        text-align: center;
       }
-      &::after {
-        content: '';
-        background-image: url(../images/bg-present-outline-right.png);
-        background-repeat: no-repeat;
-        background-position: left 46px top 310px;
-        background-size: 114px;
-        width: calc((100% - 900px) / 2);
-        height: 100%;
-        position: absolute;
-        right: 0;
-        top: 0;
+    }
+    .giftee-box{
+      p{
+        text-align: center;
       }
-      .inner {
-        padding-top: 89px;
-        padding-bottom: 120px;
-      }
-      .present-outline-title {
-        .present-outline-title__image {
-          width: 79.778%;
-          max-width: 718px;
-        }
-      }
-      .present-prize {
-        @include flex(nowrap, space-between, stretch);
-        .present-prize__block {
-          padding-top: 9%;
-          padding-bottom: 25px;
-          margin-top: 67px;
-          flex-basis: 48.667%;
-          .present-prize__block__title {
-            width: 89.5%;
-            max-width: none;
-            top: -11.2vw;
-            top: 0;
-            left: 50%;
-            transform: translate(-50%,-50%);
-          }
-          .present-prize__block__name {
-            padding: 0 11.4%;
-            white-space: nowrap;
-          }
-          .present-prize__block__name-sub {
-            padding: 0 11.4%;
-          }
-          .present-prize__block__text {
-            padding: 0 11.4%;
-          }
-          .present-prize__block__image {
-            padding: 0 11.4%;
-            margin-top: 15px;
-            width: 100%;
-            max-width: none;
-          }
-
-          // 個別
-          &--B {
-            .present-prize__block__image {
-              margin-top: 0px;
-              width: 100%;
-              max-width: none;
-              text-align: center;
-              img {
-                margin: 0 auto;
-                width: 86.4%;
-              }
-            }
-          }
-        }
-      }
-
-      .list-notes {
-        margin-top: 28px;
-      }
+    }
+    .notes-title{
+      margin-top: 30px;
+    }
+    .list-notes{
+      margin-top: 3px;
     }
   }
 }

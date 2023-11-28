@@ -7,6 +7,11 @@
 /* ----------------------------------------------------------------
   リスト
 ---------------------------------------------------------------- */
+.notes-title{
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
 // ※印
 .list-notes {
   margin: 1em auto;
@@ -16,9 +21,21 @@
     line-height: 1.5;
     position: relative;
     &::before {
-      content: '※';
+      content: '・';
       position: absolute;
       left: 0;
+    }
+  }
+}
+
+// num
+.list-num {
+  @extend .list-notes;
+  counter-reset: Num;
+  li{
+    counter-increment: Num;
+    &::before{
+      content: counter(Num)'.';
     }
   }
 }
@@ -30,14 +47,14 @@
     & + li {
       margin-top: 0.4em;
     }
+    font-size: 1.3rem;
     position: relative;
     padding-left: calc(1em + 1px);
     &::before {
       content: '・';
       position: absolute;
       left: 0;
-      top: 2px;
-      font-size: 1.4rem;
+      top: 0;
     }
   }
 }

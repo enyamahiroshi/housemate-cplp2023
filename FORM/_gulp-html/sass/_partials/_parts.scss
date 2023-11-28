@@ -16,9 +16,21 @@
     line-height: 1.5;
     position: relative;
     &::before {
-      content: '※';
+      content: '・';
       position: absolute;
       left: 0;
+    }
+  }
+}
+
+// num
+.list-num {
+  @extend .list-notes;
+  counter-reset: Num;
+  li{
+    counter-increment: Num;
+    &::before{
+      content: counter(Num)'.';
     }
   }
 }

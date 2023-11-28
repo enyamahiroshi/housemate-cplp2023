@@ -44,8 +44,8 @@ $gray: #B5B5B5;
 
 // step
 .step {
+  margin-top: 60px;
   @include flex(nowrap, space-between, stretch);
-  margin-top: 40px;
   .step__item {
     @include flex(nowrap, center, center);
     padding-right: 10px;
@@ -77,12 +77,22 @@ $gray: #B5B5B5;
       }
     }
   }
+  //ページごと
+  .confirm &,
+  .complete &{
+    margin-top: 40px;
+  }
 }
 @include res_min( $break ){
   .step {
-    margin-top: 50px;
+    margin-top: 80px;
     .step__item {
       flex-basis: calc(33.333% - 8px);
+    }
+    //ページごと
+    .confirm &,
+    .complete &{
+      margin-top: 46px;
     }
   }
 }
@@ -105,6 +115,7 @@ $gray: #B5B5B5;
   position: relative;
   &:link, &:visited {
     color: #fff;
+    text-decoration: none;
     transition: none;
   }
   &:hover, &:active {
@@ -356,7 +367,7 @@ $gray: #B5B5B5;
 
 // アンケート
 .questionnaire {
-  margin-top: 40px;
+  margin-top: 60px;
   border: 1px solid $red;
   border-radius: 10px;
   overflow: hidden;
@@ -367,6 +378,7 @@ $gray: #B5B5B5;
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 1.75;
+    letter-spacing: 0.1em;
     color: #fff;
   }
 
@@ -592,7 +604,7 @@ $gray: #B5B5B5;
 }
 @include res_min( $break ){
   .questionnaire {
-    margin-top: 60px;
+    margin-top: 80px;
 
     .text {
       padding: 45px 50px;
@@ -941,9 +953,9 @@ $gray: #B5B5B5;
 
       // option
       .option {
-        padding-top: 30px;
+        padding-top: 10px;
         font-size: 1.6rem;
-        // 桁によるpadding
+        // Qの桁によるpadding
         &.digit2 {
           padding-left: 57px;
         }
@@ -951,19 +963,18 @@ $gray: #B5B5B5;
           padding-left: 66px;
         }
         li {
-          padding-bottom: 10px;
           margin-top: 10px;
           &:first-of-type {
             margin-top: 0;
           }
-          border-bottom: 1px solid $gray;
+          // border-bottom: 1px solid $gray;
         }
       }
       @include res_min( $break ){
         .option {
           padding-top: 18px;
           font-size: 1.8rem;
-          // 桁によるpadding
+          // Qの桁によるpadding
           &.digit2 {
             padding-left: 94px;
           }
@@ -971,10 +982,9 @@ $gray: #B5B5B5;
             padding-left: 94px;
           }
           li {
-            padding-bottom: 18px;
-            margin-top: 18px;
+            margin-top: 16px;
             &:first-of-type {
-              margin-top: 18px;
+              margin-top: 8px;
             }
           }
         }
@@ -1003,7 +1013,7 @@ $gray: #B5B5B5;
     &::before,
     &::after {
       content: '';
-      background-image: url(../images/bg_conplete_title-s.svg);
+      background-image: url(../images/bg_conplete_title-s.png);
       background-repeat: no-repeat;
       background-position: center top;
       background-size: 100%;
@@ -1026,7 +1036,7 @@ $gray: #B5B5B5;
       font-size: clamp(2.4rem, 3.1vw, 3rem);
       &::before,
       &::after {
-        background-image: url(../images/bg_conplete_title-l.svg);
+        background-image: url(../images/bg_conplete_title-l.png);
         width: 50px;
       }
     }
