@@ -451,6 +451,10 @@ $gray: #B5B5B5;
       &::before {
         content: '※';
       }
+      //アラートが2つ以上続く場合は非表示にする
+      & + .alert{
+        // display: none;
+      }
     }
 
     // select
@@ -1062,4 +1066,12 @@ $gray: #B5B5B5;
     }
   }
 
+}
+
+
+//q03-error重複エラー対処
+.chose-area{
+  p.alert + p.alert{
+    display: none !important;
+  }
 }
